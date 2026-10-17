@@ -1,0 +1,2 @@
+import crypto from 'node:crypto';
+export async function sendWebhook(lead:unknown){const url=process.env.WEBHOOK_URL;if(!url)return;try{const body=JSON.stringify(lead),signature=crypto.createHmac('sha256',process.env.WEBHOOK_SECRET||'').update(body).digest('hex');const res=await fetch(url,{method:'POST',headers:{'content-type':'application/json','X-Signature':signature},body,signal:AbortSignal.timeout(4000)});if(!res.ok)console.error('Webhook returned',res.status);}catch(e){console.error('Webhook failed',e);}}

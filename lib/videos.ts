@@ -1,0 +1,2 @@
+export const VIDEO_1_URL=process.env.VIDEO_1_URL||'/videos/video-1.mp4';export const VIDEO_2_URL=process.env.VIDEO_2_URL||'/videos/video-2.mp4';
+export function videoSource(url:string){if(!url)return null;if(/\.mp4($|\?)/i.test(url))return{kind:'mp4' as const,url};const y=url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]+)/);if(y)return{kind:'embed' as const,url:`https://www.youtube-nocookie.com/embed/${y[1]}`};const v=url.match(/vimeo\.com\/(\d+)/);if(v)return{kind:'embed' as const,url:`https://player.vimeo.com/video/${v[1]}`};return null;}

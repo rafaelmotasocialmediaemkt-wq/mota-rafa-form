@@ -1,0 +1,3 @@
+import type {Metadata} from 'next';import './globals.css';import MetaPixel from '@/components/meta-pixel';
+export const metadata:Metadata={title:'Mota Rafa | Estratégia & Conteúdo',description:'Receba um diagnóstico gratuito do seu perfil e descubra como transformar conteúdo em vendas.',openGraph:{title:'Mota Rafa | Estratégia & Conteúdo',description:'Responda 5 perguntas e receba seu diagnóstico gratuito.',type:'website'},icons:{icon:'/favicon.svg'}};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="pt-BR"><body><MetaPixel/>{children}</body></html>}
